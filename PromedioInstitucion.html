@@ -396,14 +396,39 @@
 			        // Hook to handle parsing AJAX response
 			        var text = result;
 			        var inicio = fin ='';
-			        inicio=text.search('institucio = ')
-          			fin=text.search('longitud')
-          			inicio2=text.search('promedio = ')
-          			fin2=text.search('pcolor')
+			        var result1 = '';
+			        var result2 = '';
+			        var result3 = '';
+			        var result4 = '';
+			        inicio=text.search('institucio = ');
+          			fin=text.search('longitud');
+          			inicio2=text.search('id = ');
+          			fin2=text.search('institucio = ');
+          			
 
-			        result = text.substr(inicio + 13, fin - (inicio + 13)) + ': ' + text.substr(inicio2 + 10, fin2 - (inicio2 + 12));
+			        result1 = "<b><h4 align = 'center'>" + text.substr(inicio2 + 5, fin2 - (inicio2 + 7)) + "º  LUGAR</h4></b><b>INSTITUCIÓN: </b>" + text.substr(inicio + 13, fin - (inicio + 13));
+			        
+			        inicio=text.search('estudiante = ');
+          			fin=text.search('departamen = ');
 
-			        if(result == ": "){
+          			inicio2=text.search('nota = ');
+          			fin2=text.search('geom');
+
+			        result2 = "<b>NOTA: </b>" + text.substr(inicio2 + 7, fin2 - (inicio2 + 22)) + "<br/><b>CANTIDAD DE ESTUDIANTES: </b>" + text.substr(inicio + 13, fin - (inicio + 14));
+
+			        inicio=text.search('sector = ');
+          			fin=text.search('estudiante = ');
+
+			        result3 = "<b>SECTOR: </b>" + text.substr(inicio + 9, fin - (inicio + 10)); 
+
+			        inicio2=text.search('departamen = ');
+          			fin2=text.search('municipio = ');
+          			inicio = text.search("nota = ");
+
+
+			        result = result1 + "<br/>" + result2 + "<br/>" + result3;
+
+			        if(result3 == "<b>SECTOR: </b>"){
 			        	result = "Seleccione un punto de los que aparecen en el mapa."
 			        }
 

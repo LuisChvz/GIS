@@ -402,9 +402,9 @@
           			inicio2=text.search('matematica = ')
           			fin2=text.search('mcolor')
 
-			        result = text.substr(inicio + 6, fin - (inicio + 8)) + ': ' + text.substr(inicio2 + 13, fin2 - (inicio2 + 13));
+			        result = "<b>Municipio: </b>" + text.substr(inicio + 6, fin - (inicio + 8)) + '<br/><b>Nota: </b>' + text.substr(inicio2 + 13, fin2 - (inicio2 + 13));
 
-			        if (result == ": ") {
+			        if (result == "<b>Municipio: </b><br/><b>Nota: </b>") {
 			        	result = "Seleccione un municipio."
 			        }
 

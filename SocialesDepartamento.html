@@ -401,9 +401,9 @@
           			inicio2=text.search('sociales')
           			fin2=text.search('geom')
 
-			        result = text.substr(inicio + 6, fin - (inicio + 8)) + ': ' + text.substr(inicio2 + 11, fin2 - (inicio2 + 35));
+			        result = "<b>Departamento: </b>" + text.substr(inicio + 6, fin - (inicio + 8)) + '<br/><b> Nota: </b>' +text.substr(inicio2 + 11, fin2 - (inicio2 + 35));
 
-			        if (result == ": ") {
+			        if (result == "<b>Departamento: </b><br/><b> Nota: </b>") {
 			        	result = "Seleccione un departamento."
 			        }
 

@@ -146,9 +146,20 @@
 	    		<div class="row">
 	        		<div class="col-md-12">
 	        			<div class="card white-content">
-
 	              			<div class="card-body">
 	              				<div id="map"></div>
+	              			</div>
+	              		</div>
+	        		</div>
+	        	</div>
+	        	<div class="row">
+	        		<div class="col-md-12">
+	        			<div class="card white-content">
+	        				<div class="card-header" align="center">
+	        					<h4>Top 10 instituciones - Lenguaje</h4>
+	        				</div>
+	              			<div class="card-body" align="cener">
+	              				<canvas id="chart"></canvas>
 	              			</div>
 	              		</div>
 	        		</div>
@@ -180,6 +191,7 @@
 	    <script src="static/js/core/popper.min.js" type="text/javascript"></script>
 	    <script src="static/js/core/bootstrap.min.js" type="text/javascript"></script>
 	    <script src="static/js/plugins/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+	    <script src="static/js/plugins/chartjs.min.js" type="text/javascript"></script>
 	    <!--  Google Maps Plugin    -->
 	    <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
 	    <script src="static/js/black-dashboard.min.js" type="text/javascript"></script>
@@ -727,6 +739,61 @@
 	  		
 	  	</script>
 
+	  	<script type="text/javascript">
+		    $(document).ready(function(){
+
+		      var vector = ["8.8", "8.7", "8.6", "8.5", "8.5", "8.5", "8.5", "8.5", "8.4", "8.4"];
+		      var nombres = ["Instituto de Modalidades Flexibles", "Academia Britanica Cuscatleca", "Escuela Cristiana Oasis El Salvador", "Colegio Champagnat", "Instituto Católico de Oriente", "Colegio Español Padre Arrupe", "Escuela Cristiana Oasis El Salvador","Liceo Frances", "Escuela Alemana", "Colegio Externado San José"];
+
+
+		      var datos = {
+		        labels : nombres,
+		        datasets : [{
+		          label : "",
+		          backgroundColor : ["rgba(241, 148, 138,0.5)", "rgba(246, 128, 240,0.5)","rgba(159, 0, 255,0.5)","rgba(60, 138, 254 ,0.5)","rgba(0, 195, 255,0.5)","rgba(0, 255, 180,0.5)","rgba(55, 255, 0,0.3)", "rgba(225, 255, 0,0.4)", "rgba(255, 150, 0,0.4)", "rgba(241, 148, 138,0.5)", "rgba(246, 128, 240,0.5)","rgba(159, 0, 255,0.5)","rgba(60, 138, 254 ,0.5)","rgba(0, 195, 255,0.5)"],
+		          data : vector,
+		        },
+		        ]
+
+		      };
+
+		      Chart.defaults.global.legend.display = false;
+		      var canvas = document.getElementById('chart').getContext('2d');
+		      window.bar = new Chart(canvas, {
+		        type : "bar",
+		        data : datos,
+		        options : {
+		          elements : {
+		            rectangle : {
+		              borderWidth : 1,
+		              borderColor : "rgb(0,0,0)",
+		              borderSkipped : 'bottom'
+		            }
+		          },
+		          responsive : true,
+		          fill: true,
+		          scales: {
+                           yAxes: [{
+                               ticks: {
+                                   beginAtZero: false,
+                                   steps: 2,
+                                   stepValue: 2,
+                                   max: 8.8,
+                                   min: 8.2,
+                                   }
+                           }],
+                           xAxes: [{
+				                ticks: {
+				                    display: false //this will remove only the label
+				                }
+				            }]
+                       },
+		        },
+		      });
+		    });
+
+
+		</script>
 	  	
 	  	<script>
 

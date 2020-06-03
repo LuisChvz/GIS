@@ -7,7 +7,7 @@
 	  <link rel="icon" type="image/png" href="static/images/favicon.png">
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	  <title>Municipios | Matamática</title>
+	  <title>Municipios | Matemática</title>
 	  
 	  <!--     Fonts and icons     -->
 	  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet"/>
@@ -147,9 +147,20 @@
 	    		<div class="row">
 	        		<div class="col-md-12">
 	        			<div class="card white-content">
-
 	              			<div class="card-body">
 	              				<div id="map"></div>
+	              			</div>
+	              		</div>
+	        		</div>
+	        	</div>
+	        	<div class="row">
+	        		<div class="col-md-12">
+	        			<div class="card white-content">
+	        				<div class="card-header" align="center">
+	        					<h4>Top 10 municipios - Matemáticas</h4>
+	        				</div>
+	              			<div class="card-body">
+	              				<canvas id="chart"></canvas>
 	              			</div>
 	              		</div>
 	        		</div>
@@ -181,6 +192,7 @@
 	    <script src="static/js/core/popper.min.js" type="text/javascript"></script>
 	    <script src="static/js/core/bootstrap.min.js" type="text/javascript"></script>
 	    <script src="static/js/plugins/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+	    <script src="static/js/plugins/chartjs.min.js" type="text/javascript"></script>
 	    <!--  Google Maps Plugin    -->
 	    <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
 	    <script src="static/js/black-dashboard.min.js" type="text/javascript"></script>
@@ -703,6 +715,57 @@
 	  		
 	  	</script>
 
+
+	  	<script type="text/javascript">
+		    $(document).ready(function(){
+
+		      var vector = ["8.8", "8.6", "8.2", "8.0", "7.9", "7.8", "7.7", "7.7", "7.5", "7.5"];
+		      var nombres = ["Lislique", "Anamorós", "Uluazapa", "La Laguna", "Nueva Trinidad", "Nueva Guadalupe", "San Gerardo", "San Isidro", "Jocoro", "Polorós"];
+
+
+		      var datos = {
+		        labels : nombres,
+		        datasets : [{
+		          label : "",
+		          backgroundColor : ["rgba(241, 148, 138,0.5)", "rgba(246, 128, 240,0.5)","rgba(159, 0, 255,0.5)","rgba(60, 138, 254 ,0.5)","rgba(0, 195, 255,0.5)","rgba(0, 255, 180,0.5)","rgba(55, 255, 0,0.3)", "rgba(225, 255, 0,0.4)", "rgba(255, 150, 0,0.4)", "rgba(241, 148, 138,0.5)", "rgba(246, 128, 240,0.5)","rgba(159, 0, 255,0.5)","rgba(60, 138, 254 ,0.5)","rgba(0, 195, 255,0.5)"],
+		          data : vector,
+		        },
+		        ]
+
+		      };
+
+		      Chart.defaults.global.legend.display = false;
+		      var canvas = document.getElementById('chart').getContext('2d');
+		      window.bar = new Chart(canvas, {
+		        type : "bar",
+		        data : datos,
+		        options : {
+		          elements : {
+		            rectangle : {
+		              borderWidth : 1,
+		              borderColor : "rgb(0,0,0)",
+		              borderSkipped : 'bottom'
+		            }
+		          },
+		          responsive : true,
+		          fill: true,
+		          scales: {
+                           yAxes: [{
+                               ticks: {
+                                   beginAtZero: false,
+                                   steps: 2,
+                                   stepValue: 2,
+                                   max: 8.8,
+                                   min: 7,
+                                   }
+                           }]
+                       },
+		        },
+		      });
+		    });
+
+
+		</script>
 	  	
 	  	<script>
 

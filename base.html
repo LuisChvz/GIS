@@ -414,7 +414,7 @@
 		      var datos = ["5869", "1639", "2078", "3433", "9619", "3823", "2092", "2277", "5658", "22990", "1954", "6256", "4218", "4119"];
 		      var nombres = ["Ahuachapán", "Cabañas", "Chalatenango", "Cuscatlan", "La Libertad", "La Paz", "La Unión", "Morazán", "San Miguel", "San Salvador", "San Vicente", "Santa Ana", "Sonsonate", "Usulután"];
 
-		      Chart.defaults.global.legend.display = false;
+		      
 		      var datos = {
 		        labels : nombres,
 		        datasets : [{
@@ -435,6 +435,9 @@
 		        options : {
 		          responsive : true,
 		          fill: true,
+		          legend: {
+		          	display:false
+		          },
 		          scales: {
                            xAxes: [{
 				                ticks: {
@@ -461,7 +464,7 @@
 		        labels : nombres,
 		        datasets : [{
 			          label : "",
-			          backgroundColor : ["rgba(0, 255, 180, 0.5)", "rgba(255, 158, 246, 0.5)"],
+			          backgroundColor : ["rgba(255, 158, 246, 0.5)", "rgba(29, 140, 248, 0.5)"],
 			          borderColor : "rgb(0, 0, 0)",
 			          borderWidth : 1,
 			          data : datos,
@@ -475,7 +478,6 @@
 		        type : "pie",
 		        data : datos,
 		        options : {
-		          
 		          responsive : true,
 		          fill: true,
 		          
@@ -503,7 +505,7 @@
 		        labels : nombres,
 		        datasets : [{
 			          label : "",
-			          backgroundColor : "rgba(60, 138, 254 ,0.5)",
+			          backgroundColor : "rgba(29, 140, 248, 0.5)",
 			          data : datos,
 			          borderWidth : 1,
 		              borderColor : "rgb(0,0,0)",
@@ -517,13 +519,9 @@
 		        type : "line",
 		        data : datos,
 		        options : {
-		          elements : {
-		            rectangle : {
-		              borderWidth : 1,
-		              borderColor : "rgb(0,0,0)",
-		              borderSkipped : 'bottom'
-		            }
-		          },
+		          legend: {
+		          	display:false
+		          },	
 		          responsive : true,
 		          fill: true,
 		          scales: {
